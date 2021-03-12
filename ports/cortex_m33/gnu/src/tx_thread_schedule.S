@@ -320,6 +320,8 @@ _tx_svc_secure_free:
     .thumb_func
 .type _tx_vfp_access, function
 _tx_vfp_access:
+#if TX_ENABLE_FPU_SUPPORT
     VMOV.F32 s0, s0                                 // Simply access the VFP
+#endif
     BX       lr                                     // Return to caller
 .end
